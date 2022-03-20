@@ -1,0 +1,19 @@
+.search {
+  display: flex;
+  width: 100%;
+}
+
+.search input {
+  padding: 0.5rem;
+  width: 100%;
+}
+
+.search button {
+  margin-top: 1.15rem;
+}
+
+.button--clear {
+  border: none;
+  color: var(--color-blue-300);
+  padding-left: 0;
+}

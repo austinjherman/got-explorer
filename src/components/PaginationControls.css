@@ -1,0 +1,10 @@
+.controls--pagination button {
+  border: none;
+  color: var(--color-blue-300);
+  padding-left: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.controls--pagination button[disabled] {
+  color: var(--color-gray-200);
+}

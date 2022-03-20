@@ -1,38 +1,75 @@
-.App {
-  text-align: center;
+:root {
+  --color-black: var(--color-gray-100);
+  --color-white: var(--color-gray-500);
+
+  --color-gray-100: hsla(0, 0%, 6%, 1);
+  --color-gray-100--alpha: hsla(0, 0%, 6%, 0.75);
+  --color-gray-200: hsla(0, 0%, 25%, 1);
+  --color-gray-300: hsla(0, 0%, 50%, 1);
+  --color-gray-400: hsla(0, 0%, 85%, 1);
+  --color-gray-500: hsla(0, 0%, 95%, 1);
+  
+  --color-blue-100: hsla(210, 100%, 20%, 1);
+  --color-blue-200: hsla(210, 100%, 35%, 1);
+  --color-blue-300: hsla(210, 100%, 50%, 1);
+  --color-blue-400: hsla(210, 100%, 65%, 1);
+  --color-blue-500: hsla(210, 100%, 80%, 1);
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: var(--color-white);
+  /* System */
+  font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+  position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+  margin-top: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+button {
+  background: var(--color-white);
+  color: var(--color-gray-200);
+  cursor: pointer;
+  border: 1px solid var(--color-gray-200);
+  border-radius: 1px;
+  margin-right: 1rem;
+  padding: 0.5rem;
+  transition: all 0.2s ease-in-out;
+}
+
+button[data-active="true"] {
+  color: var(--color-gray-100);
+  border: 1px solid var(--color-gray-100);
+}
+
+.app-got {
+  position: relative;
+}
+.app-got[data-modal-open="true"] {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.app-main {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.app-modal {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.controls--content {
+  margin: 1rem 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.content {
+  margin: 1rem 0;
+}
+
+.small {
+  font-size: 0.8rem;
 }

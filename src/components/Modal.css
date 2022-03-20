@@ -1,0 +1,24 @@
+.modal-screen {
+  background-color: var(--color-gray-100--alpha);
+  position: fixed;
+  inset: 0;
+}
+
+.modal {
+  background-color: var(--color-white);
+  border-radius: 2px;
+  overflow: scroll;
+  padding: 1rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 auto;
+  width: 500px;
+  max-width: 85vw;
+  height: 85vh;
+}
+
+.close {
+  display: flex;
+  justify-content: flex-end;
+}
