@@ -3,7 +3,7 @@ import { Character, House, Result } from './types'
 /**
  * Turn off API calls. Useful during dev so we're not hitting the API constantly. 
  */
-const API_OFF: boolean = true
+const API_OFF: boolean = false
 
 /**
  * The number of results per page we'll request.
@@ -104,13 +104,15 @@ export async function getCharactersByPage(
 /**
  * Get house by name.
  */
- export async function getHouseByName(name: string): Promise<Result<House|null>> {
-  if (API_OFF) return Promise.resolve({ data: null, error: null, isLastPage: true })
-  const result: Result<House|null> = { data: null, error: null, isLastPage: true }
+export async function getHouseByName(name: string): Promise<Result<House[]>> {
+  if (API_OFF) return Promise.resolve({ data: [], error: null, isLastPage: true })
+  const result: Result<House[]> = { data: [], error: null, isLastPage: true }
   const response = await fetch(`${API_BASE}/houses/?name=${name}`)
-  if (!response.ok) result.error = 'There was a problem loading house data.'
-  result.data = await response.json() as House
-  result.data.id = getIDFromAPIURL(result.data.url)
+  if (!response.ok) result.error = 'There was a problem loading character data.'
+  result.data = await response.json() as House[]
+  if (result.data.length > 0) {
+    result.data[0].id = getIDFromAPIURL(result.data[0].url)
+  }
   return result
 }
 
