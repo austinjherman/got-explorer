@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { getCharacterByName } from '../api-asoiaf'
+import { getCharacterByName, getHouseByName } from '../api-asoiaf'
 
 import { view } from '../App'
 import { DataTableInterface, DataTableData } from '../types'
@@ -22,7 +22,7 @@ function Search({ currentViewName, setViewData }: Props) {
       if (response.data.length > 0) data.push(response.data[0])
     }
     if (currentViewName === view.houses) {
-      const response = await getCharacterByName(encodeURIComponent(searchValue.trim()))
+      const response = await getHouseByName(encodeURIComponent(searchValue.trim()))
       if (response.data.length > 0) data.push(response.data[0])
     }
     setViewData(prev => ({ ...prev, data }))
